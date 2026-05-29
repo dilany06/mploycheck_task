@@ -1,0 +1,19 @@
+<header class="shell-header">
+  <a class="brand" routerLink="/workspace" aria-label="Mini CRM Access Console">
+    <span class="brand-mark">MC</span>
+    <span>
+      <strong>Mini CRM</strong>
+      <small>Access Console</small>
+    </span>
+  </a>
+
+  <nav *ngIf="user$ | async as user">
+    <a routerLink="/workspace" routerLinkActive="active">Workspace</a>
+    <a *ngIf="user.role === 'Admin'" routerLink="/admin/users" routerLinkActive="active">Users</a>
+    <button type="button" (click)="logout()">Sign out</button>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

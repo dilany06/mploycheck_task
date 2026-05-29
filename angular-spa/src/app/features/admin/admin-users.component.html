@@ -1,0 +1,71 @@
+<section class="admin-page">
+  <div class="page-title">
+    <div>
+      <p class="eyebrow">Admin control</p>
+      <h1>User Management</h1>
+    </div>
+    <span class="pill">{{ loading ? 'Loading XML users...' : users.length + ' users' }}</span>
+  </div>
+
+  <form class="user-form" (ngSubmit)="createUser()">
+    <label>
+      User ID
+      <input name="userId" [(ngModel)]="form.userId" required>
+    </label>
+    <label>
+      Name
+      <input name="name" [(ngModel)]="form.name" required>
+    </label>
+    <label>
+      Password
+      <input name="password" [(ngModel)]="form.password" required>
+    </label>
+    <label>
+      Department
+      <input name="department" [(ngModel)]="form.department">
+    </label>
+    <label>
+      Role
+      <select name="role" [(ngModel)]="form.role">
+        <option [ngValue]="'General User'">General User</option>
+        <option [ngValue]="'Admin'">Admin</option>
+      </select>
+    </label>
+    <label class="checkbox">
+      <input name="active" type="checkbox" [(ngModel)]="form.active">
+      Active
+    </label>
+    <button class="primary" type="submit" [disabled]="saving">{{ saving ? 'Saving...' : 'Create user' }}</button>
+  </form>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <section class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>User ID</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.userId }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.department }}</td>
+          <td>{{ user.active ? 'Active' : 'Inactive' }}</td>
+          <td>
+            <button type="button" class="ghost" (click)="toggleUser(user)">
+              {{ user.active ? 'Deactivate' : 'Activate' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

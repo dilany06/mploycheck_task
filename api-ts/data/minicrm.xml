@@ -1,0 +1,55 @@
+<db>
+  <users>
+    <user>
+      <id>u-admin</id>
+      <userId>admin</userId>
+      <name>Aarav Mehta</name>
+      <password>Admin@123</password>
+      <role>Admin</role>
+      <department>Operations</department>
+      <active>true</active>
+    </user>
+    <user>
+      <id>u-general</id>
+      <userId>general</userId>
+      <name>Nisha Rao</name>
+      <password>User@123</password>
+      <role>General User</role>
+      <department>Field Sales</department>
+      <active>true</active>
+    </user>
+  </users>
+  <records>
+    <record>
+      <id>r-1001</id>
+      <ownerId>u-general</ownerId>
+      <customer>Northwind Retail</customer>
+      <opportunity>Device onboarding pilot</opportunity>
+      <value>180000</value>
+      <status>Open</status>
+      <accessLevel>General User</accessLevel>
+      <updatedAt>2026-05-17T10:30:00.000Z</updatedAt>
+    </record>
+    <record>
+      <id>r-1002</id>
+      <ownerId>u-admin</ownerId>
+      <customer>Contoso Health</customer>
+      <opportunity>Admin-only account audit</opportunity>
+      <value>420000</value>
+      <status>Review</status>
+      <accessLevel>Admin</accessLevel>
+      <updatedAt>2026-05-18T08:00:00.000Z</updatedAt>
+    </record>
+    <record>
+      <id>r-1003</id>
+      <ownerId>u-general</ownerId>
+      <customer>Bluepine Finance</customer>
+      <opportunity>Shared workflow rollout</opportunity>
+      <value>260000</value>
+      <status>Won</status>
+      <accessLevel>Shared</accessLevel>
+      <updatedAt>2026-05-20T14:15:00.000Z</updatedAt>
+    </record>
+  </records>
+  <sessions></sessions>
+</db>

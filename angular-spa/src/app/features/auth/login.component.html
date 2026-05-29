@@ -1,0 +1,36 @@
+<section class="login-page">
+  <div class="login-visual">
+    <p class="eyebrow">Role based CRM workspace</p>
+    <h1>One login, two levels of operational visibility.</h1>
+    <p>
+      Admins see all records and can manage users. General users see only owned and shared records,
+      with API latency made visible on page load.
+    </p>
+    <div class="demo-strip">
+      <button type="button" (click)="fillDemo('Admin')">Admin demo</button>
+      <button type="button" (click)="fillDemo('General User')">General user demo</button>
+    </div>
+  </div>
+
+  <form class="login-panel" (ngSubmit)="login()">
+    <h2>Sign in</h2>
+    <label>
+      User ID
+      <input name="userId" [(ngModel)]="userId" required>
+    </label>
+    <label>
+      Password
+      <input name="password" [(ngModel)]="password" type="password" required>
+    </label>
+    <label>
+      Role
+      <select name="role" [(ngModel)]="role">
+        <option *ngFor="let option of roles" [ngValue]="option">{{ option }}</option>
+      </select>
+    </label>
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <button class="primary" type="submit" [disabled]="loading">
+      {{ loading ? 'Checking API...' : 'Login' }}
+    </button>
+  </form>
+</section>
