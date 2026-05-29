@@ -23,7 +23,7 @@ npm run install:all
 ```env
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/mini_crm
-JWT_SECRET=replace-with-a-long-random-secret
+JWT_SECRET=mini-crm-local-secret-123498
 CLIENT_URL=http://localhost:5173
 ```
 
